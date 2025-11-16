@@ -1,10 +1,38 @@
 ---
+import Badge from '../components/Badge.astro';
+import GitHubIcon from '../components/icons/GitHubIcon.astro';
+import LinkedInIcon from '../components/icons/LinkedInIcon.astro';
 import Layout from '../layouts/Layout.astro';
 import "../styles/global.css";
 ---
 
-<Layout>
-	<>
-	<h1 class="text-5xl text-blue-500 font-bold">Portafolio</h1>
-	</>
+<Layout title = {"Portafolio Ignacio"}>
+	<main>
+		<section class="w-full mx-auto lg:w-[740px] py-28 px-5">
+
+			<h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-10">
+				Hola!, Soy Ignacio
+			</h1>
+			<div class="flex justify-left pb-3">
+				<Badge>Disponible para trabajar</Badge>
+			</div>
+
+
+			<h2 class="text-xl text-wrap">
+				<span>Ingeniería Civil en Computación e Informática recién titulado.</span>
+				<span class="text-yellow-200/90"> Desarrollador FullStack.</span>
+				<span class="text-red-300/90"> De Chile</span>
+				<span class="opacity-75"> con experiencia en proyectos reales de software, análisis datos y minería.</span>
+			</h2>
+
+			<ul>
+				<li>
+					<a href="https://www.linkedin.com/in/ignacio-felipe-umana-morel/">
+						<GitHubIcon class="w-6 h-6"/>
+					</a>
+				</li>
+			</ul>
+
+		</section>
+	</main>
 </Layout>
