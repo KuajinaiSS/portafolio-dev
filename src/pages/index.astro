@@ -1,37 +1,54 @@
 ---
 import Badge from '../components/Badge.astro';
+import SocialPill from '../components/SocialPill.astro';
 import GitHubIcon from '../components/icons/GitHubIcon.astro';
 import LinkedInIcon from '../components/icons/LinkedInIcon.astro';
+import EmailIcon from '../components/icons/EmailIcon.astro';
 import Layout from '../layouts/Layout.astro';
 import "../styles/global.css";
+import casper from "../assets/casper.png";
 ---
 
-<Layout title = {"Portafolio Ignacio"}>
+<Layout
+	title = {"Portafolio de Ignacio"}
+	description = {"Contrata a Ignacio para crear tu aplicacion web o movil."}
+>
 	<main>
-		<section class="w-full mx-auto lg:w-[740px] py-28 px-5">
 
-			<h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-10">
+		<section class="w-full mx-auto lg:w-[740px] py-28 px-5">
+			<img
+         		class="rounded-full size-16 mb-4"
+         		src={casper.src}
+         		alt="ignacio foto"
+     		/>
+			<h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-3">
 				Hola!, Soy Ignacio
 			</h1>
-			<div class="flex justify-left pb-3">
+			<div class="flex justify-left pb-6">
 				<Badge>Disponible para trabajar</Badge>
 			</div>
 
 
 			<h2 class="text-xl text-wrap">
-				<span>Ingeniería Civil en Computación e Informática recién titulado.</span>
+				<span>Ingeniero Civil en Computación e Informática recién titulado.</span>
 				<span class="text-yellow-200/90"> Desarrollador FullStack.</span>
 				<span class="text-red-300/90"> De Chile</span>
 				<span class="opacity-75"> con experiencia en proyectos reales de software, análisis datos y minería.</span>
 			</h2>
 
-			<ul>
-				<li>
-					<a href="https://www.linkedin.com/in/ignacio-felipe-umana-morel/">
-						<GitHubIcon class="w-6 h-6"/>
-					</a>
-				</li>
-			</ul>
+			<nav class="mt-4 flex gap-x-2 flex-wrap">
+				<SocialPill href="https://www.linkedin.com/in/ignacio-felipe-umana-morel/">
+					<LinkedInIcon class="size-6"/> LinkedIn
+				</SocialPill>
+
+				<SocialPill href="https://github.com/KuajinaiSS">
+					<GitHubIcon class="size-6"/> GitHub
+				</SocialPill>
+
+				<SocialPill href="https://github.com/KuajinaiSS">
+					<EmailIcon class="size-6"/> ignacioumam@gmail.com
+				</SocialPill>
+			</nav>
 
 		</section>
 	</main>
