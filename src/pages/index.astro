@@ -18,7 +18,7 @@ import Proyects from '../components/Proyects.astro';
 >
 	<main>
 
-		<SectionContainer class="w-full mx-auto lg:w-[740px] pt-30 px-5">
+		<SectionContainer id="sobre-mi" class="w-full mx-auto lg:w-[740px] py-20 px-5 pt-40">
 			<img
          		class="rounded-full size-28 mb-4"
          		src={casper.src}
@@ -32,11 +32,13 @@ import Proyects from '../components/Proyects.astro';
 			</div>
 
 
-			<h2 class="text-xl text-wrap">
-				<span>Ingeniero Civil en Computación e Informática recién titulado.</span>
-				<span class="text-yellow-200/90"> Desarrollador FullStack.</span>
-				<span class="text-red-300/90"> De Chile</span>
-				<span class="opacity-75 "> con experiencia en proyectos reales de software, análisis datos y minería.</span>
+			<h2 class="text-xl text-pretty">
+				<span>Ingeniero Civil en Computación e Informática,</span>
+				<span class="text-yellow-200/95 font-semibold"> Desarrollador FullStack </span>
+				<span class="text-red-300/95"> de Chile,</span>
+				<span class="opacity-80 ">
+					con experiencia en desarrollo web, microservicios y análisis de datos aplicados a la industria minera, creando soluciones escalables y orientadas al impacto real, entregando valor temprano al cliente mediante despliegues continuos.
+				</span>
 			</h2>
 
 			<nav class="mt-4 flex gap-x-2 flex-wrap">
@@ -54,12 +56,12 @@ import Proyects from '../components/Proyects.astro';
 			</nav>
 		</SectionContainer>
 
-		<SectionContainer class="w-full mx-auto lg:w-[740px] py-20 pt-25">
-			<h2 id="proyectos" class="text-3xl font-semiboldbold mb-5">Mi Experiencia</h2>
+		<SectionContainer id="experiencia" class="w-full mx-auto lg:w-[740px] py-20 px-5 pt-25">
+			<h2 class="text-3xl font-semiboldbold mb-5">Mi Experiencia</h2>
 			<Experience />
 		</SectionContainer>
 
-		<SectionContainer class="w-full mx-auto lg:w-[740px] py-20 pt-25">
+		<SectionContainer id="proyectos" class="w-full mx-auto lg:w-[740px] py-20 px-5 pt-25">
 			<h2 id="proyectos" class="text-3xl font-semiboldbold mb-5">Mis Proyectos</h2>
 			<Proyects />
 		</SectionContainer>
