@@ -14,8 +14,10 @@ const { title, description } = Astro.props
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
-		<div class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
+	<body >
+<div class="absolute inset-0 -z-10 h-[calc(100%+1px)] w-full [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
+<div class="absolute left-0 top-full -z-10 w-full min-h-screen bg-[#43219c]"></div>
+
 		<Header/>
 		<slot />
 	</body>
