@@ -1,0 +1,78 @@
+---
+import { imageConfig } from "astro:assets"
+
+const Tags = [
+    {
+        name: "Astro",
+        color: "bg-blue-500 text-white",
+        icon: "astro"
+    },
+    {
+        name: "React",
+        color: "bg-cyan-500 text-white",
+        icon: "react"
+    },
+    {
+        name: "Gatsby",
+        color: "bg-purple-500 text-white",
+        icon: "gatsby"
+    },
+    {
+        name: "Next.js",
+        color: "bg-black text-white",
+        icon: "nextjs"
+    },
+]
+
+const Projects = [
+    {
+        title: "Portafolio Dev",
+        description: "Mi portafolio personal desarrollado con Astro, Tailwind CSS y hospedado en Netlify. Muestra mis proyectos y habilidades como desarrollador web.",
+        link: "#",
+        github: "#",
+        image: "https://placehold.co/300x200",
+        tags: ["Astro", "Tailwind CSS", "Netlify"]
+    },
+    {
+        title: "App de Tareas",
+        description: "Una aplicación web para gestionar tareas diarias, con funcionalidades de agregar, editar y eliminar tareas. Desarrollada con React y Firebase.",
+        link: "#",
+        github: "#",
+        image: "https://placehold.co/300x200",
+        tags: ["React", "Firebase", "JavaScript"]
+    },
+    {
+        title: "Blog Personal",
+        description: "Un blog personal donde comparto artículos sobre desarrollo web, tecnología y programación. Construido con Gatsby y Markdown.",
+        link: "#",
+        github: "#",
+        image: "https://placehold.co/300x200",
+        tags: ["Gatsby", "Markdown", "GraphQL"]
+    },
+    {
+        title: "E-commerce Demo",
+        description: "Una tienda en línea de demostración con funcionalidades de carrito de compras, pasarela de pago y gestión de productos. Creada con Next.js y Stripe.",
+        link: "#",
+        github: "#",
+        image: "https://placehold.co/300x200",
+        tags: ["Next.js", "Stripe", "eCommerce"]
+    }
+]
+---
+
+{
+    Projects.map(({title, description, tags, image, link, github}) => (
+        <article>
+            <h3>{title}</h3>
+            <p>{description}</p>
+            <ul>
+                {
+                    tags.map(tag => (
+                        <li>{tag}</li>
+                    ))
+                }
+            </ul>
+            <img src={image} alt=""/>
+        </article>
+    ))
+}

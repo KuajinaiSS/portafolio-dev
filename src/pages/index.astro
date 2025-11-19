@@ -6,8 +6,10 @@ import LinkedInIcon from '../components/icons/LinkedInIcon.astro';
 import EmailIcon from '../components/icons/EmailIcon.astro';
 import Layout from '../layouts/Layout.astro';
 import "../styles/global.css";
-import casper from "../assets/casper.png";
+import casper from "../assets/pf picture.png";
 import Experience from '../components/Experience.astro';
+import SectionContainer from '../components/SectionContainer.astro';
+import Proyects from '../components/Proyects.astro';
 ---
 
 <Layout
@@ -16,9 +18,9 @@ import Experience from '../components/Experience.astro';
 >
 	<main>
 
-		<section class="w-full mx-auto lg:w-[740px] py-28 px-5">
+		<SectionContainer class="w-full mx-auto lg:w-[740px] pt-30 px-5">
 			<img
-         		class="rounded-full size-16 mb-4"
+         		class="rounded-full size-28 mb-4"
          		src={casper.src}
          		alt="ignacio foto"
      		/>
@@ -34,7 +36,7 @@ import Experience from '../components/Experience.astro';
 				<span>Ingeniero Civil en Computación e Informática recién titulado.</span>
 				<span class="text-yellow-200/90"> Desarrollador FullStack.</span>
 				<span class="text-red-300/90"> De Chile</span>
-				<span class="opacity-75"> con experiencia en proyectos reales de software, análisis datos y minería.</span>
+				<span class="opacity-75 "> con experiencia en proyectos reales de software, análisis datos y minería.</span>
 			</h2>
 
 			<nav class="mt-4 flex gap-x-2 flex-wrap">
@@ -50,11 +52,17 @@ import Experience from '../components/Experience.astro';
 					<EmailIcon class="size-6"/> ignacioumam@gmail.com
 				</SocialPill>
 			</nav>
-		</section>
+		</SectionContainer>
 
-		<section class="w-full mx-auto lg:w-[740px] py-15 px-5">
+		<SectionContainer class="w-full mx-auto lg:w-[740px] py-20 pt-25">
+			<h2 id="proyectos" class="text-3xl font-semiboldbold mb-5">Mi Experiencia</h2>
 			<Experience />
-		</section>
+		</SectionContainer>
+
+		<SectionContainer class="w-full mx-auto lg:w-[740px] py-20 pt-25">
+			<h2 id="proyectos" class="text-3xl font-semiboldbold mb-5">Mis Proyectos</h2>
+			<Proyects />
+		</SectionContainer>
 
 	</main>
 </Layout>

@@ -1,4 +1,5 @@
 ---
+import Footer from "../components/Footer.astro"
 import Header from "../components/Header.astro"
 import '@fontsource-variable/onest'
 const { title, description } = Astro.props
@@ -15,21 +16,26 @@ const { title, description } = Astro.props
 		<title>{title}</title>
 	</head>
 	<body >
-<div class="absolute inset-0 -z-10 h-[calc(100%+1px)] w-full [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
-<div class="absolute left-0 top-full -z-10 w-full min-h-screen bg-[#43219c]"></div>
-
+		<div class="pointer-events-none fixed inset-0 -z-10">
+			<div class="relative h-full w-full bg-slate-950">
+				<div class="absolute bottom-0 left-[-20%] right-0 top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div>
+				<div class="absolute bottom-0 right-[-20%] top-[-10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))]"></div>
+			</div>
+		</div>
 		<Header/>
 		<slot />
+		<Footer/>
 	</body>
-</html>
-
-<style is:global>
+	</html>
+	
+	<style is:global>
 	:root {
 		color-scheme: light dark;
 	}
 
 	html {
 		font-family: "Onest Variable",system-ui, sans-serif;
+		scroll-behavior: smooth;
 	}
 	
 	body {
@@ -38,4 +44,11 @@ const { title, description } = Astro.props
 		min-height: 100vh;
 		background: #05050505;
 	}
+
+	@media (prefers-reduce-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+	}
+
 </style>
