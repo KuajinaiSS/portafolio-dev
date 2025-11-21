@@ -1,0 +1,46 @@
+---
+import yoIgnacio from "../assets/pf picture.png";
+
+import Badge from "./Badge.astro";
+import EmailIcon from "../icons/EmailIcon.astro";
+import GitHubIcon from "../icons/GitHubIcon.astro";
+import LinkedInIcon from "../icons/LinkedInIcon.astro";
+import SocialPill from "./SocialPill.astro";
+---
+
+<img
+    class="rounded-full size-28 mb-4"
+    src={yoIgnacio.src}
+    alt="ignacio foto"
+/>
+
+<h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-3">
+	Hola!, Soy Ignacio
+</h1>
+<div class="flex justify-left pb-6">
+	<Badge>Disponible para trabajar</Badge>
+</div>
+
+
+<h2 class="text-xl text-pretty">
+	<span>Ingeniero Civil en Computación e Informática,</span>
+	<span class="text-yellow-200/95 font-semibold"> Desarrollador FullStack </span>
+	<span class="text-red-300/95"> de Chile,</span>
+	<span class="opacity-80 ">
+		con experiencia en desarrollo web, microservicios y análisis de datos aplicados a la industria minera, creando soluciones escalables y orientadas al impacto real, entregando valor temprano al cliente mediante despliegues continuos.
+	</span>
+</h2>
+
+<nav class="mt-4 flex gap-x-2 flex-wrap">
+	<SocialPill href="https://www.linkedin.com/in/ignacio-felipe-umana-morel/">
+		<LinkedInIcon class="size-6"/> LinkedIn
+	</SocialPill>
+
+	<SocialPill href="https://github.com/KuajinaiSS">
+		<GitHubIcon class="size-6"/> GitHub
+	</SocialPill>
+
+	<SocialPill href="mailto:ignacioumam@gmail.com">
+		<EmailIcon class="size-6"/> ignacioumam@gmail.com
+	</SocialPill>
+</nav>

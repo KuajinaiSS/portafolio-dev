@@ -1,0 +1,73 @@
+---
+import GitHubIcon from "../icons/GitHubIcon.astro";
+
+const image300x200 = "https://placehold.co/300x200"
+
+const TAGS = {
+  NEXTJS: { label: "Next.js", class: "bg-blue-500 text-white", icon: GitHubIcon },
+  TAILWINDCSS: { label: "Tailwind CSS", class: "bg-teal-400", icon: GitHubIcon },
+  REACT: { label: "React", class: "bg-cyan-400", icon: GitHubIcon },
+  FIREBASE: { label: "Firebase", class: "bg-amber-400", icon: GitHubIcon },
+  GATSBY: { label: "Gatsby", class: "bg-purple-500", icon: GitHubIcon },
+  MARKDOWN: { label: "Markdown", class: "bg-gray-700", icon: GitHubIcon },
+  STRIPE: { label: "Stripe", class: "bg-indigo-400", icon: GitHubIcon },
+  ASTRO: { label: "Astro", class: "bg-orange-400", icon: GitHubIcon },
+  TYPESCRIPT: { label: "TypeScript", class: "bg-blue-600", icon: GitHubIcon }
+};
+
+const PROJECTS = [
+    {
+        title: "Portafolio Dev",
+        description: "Mi portafolio personal desarrollado con Astro, Tailwind CSS y hospedado en Netlify. Muestra mis proyectos y habilidades como desarrollador web.",
+        link: "#",
+        github: "#",
+        image: image300x200,
+        tags: [TAGS.NEXTJS, TAGS.TAILWINDCSS]
+    },
+    {
+        title: "App de Tareas",
+        description: "Una aplicación web para gestionar tareas diarias, con funcionalidades de agregar, editar y eliminar tareas. Desarrollada con React y Firebase.",
+        link: "#",
+        github: "#",
+        image: image300x200,
+        tags: [TAGS.REACT, TAGS.FIREBASE]
+    },
+    {
+        title: "Blog Personal",
+        description: "Un blog personal donde comparto artículos sobre desarrollo web, tecnología y programación. Construido con Gatsby y Markdown.",
+        link: "#",
+        github: "#",
+        image: image300x200,
+        tags: [TAGS.GATSBY, TAGS.MARKDOWN]
+    },
+    {
+        title: "E-commerce Demo",
+        description: "Una tienda en línea de demostración con funcionalidades de carrito de compras, pasarela de pago y gestión de productos. Creada con Next.js y Stripe.",
+        link: "#",
+        github: "#",
+        image: image300x200,
+        tags: [TAGS.NEXTJS, TAGS.STRIPE]
+    }
+]
+---
+
+{
+    PROJECTS.map(({title, description, tags , image, link, github}) => (
+        <article>
+            <h3 class="text-2xl font-semibold text-yellow-300 mb-2">{title}</h3>
+            <p class="text-base text-pretty mb-2">{description}</p>
+            <ul class="flex flex-wrap gap-2 my-2">
+                {
+                    tags.map(tag => (
+                        <li>
+                            <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
+                                <tag.icon class="size-4"/> {tag.label}
+                            </span>
+                        </li>
+                    ))
+                }
+            </ul>
+            <img class="rounded shadow-2xl shadow-white/20 mb-15" src={image} alt={`captura de pantalla del proyecto ${image}`}/>
+        </article>
+    ))
+}

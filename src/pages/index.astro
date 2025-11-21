@@ -1,15 +1,10 @@
 ---
-import Badge from '../components/Badge.astro';
-import SocialPill from '../components/SocialPill.astro';
-import GitHubIcon from '../components/icons/GitHubIcon.astro';
-import LinkedInIcon from '../components/icons/LinkedInIcon.astro';
-import EmailIcon from '../components/icons/EmailIcon.astro';
 import Layout from '../layouts/Layout.astro';
 import "../styles/global.css";
-import casper from "../assets/pf picture.png";
 import Experience from '../components/Experience.astro';
 import SectionContainer from '../components/SectionContainer.astro';
-import Proyects from '../components/Proyects.astro';
+import Proyects from '../components/Projects.astro';
+import AboutMe from '../components/AboutMe.astro';
 ---
 
 <Layout
@@ -17,43 +12,8 @@ import Proyects from '../components/Proyects.astro';
 	description = {"Contrata a Ignacio para crear tu aplicacion web o movil."}
 >
 	<main>
-
 		<SectionContainer id="sobre-mi" class="w-full mx-auto lg:w-[740px] py-20 px-5 pt-40">
-			<img
-         		class="rounded-full size-28 mb-4"
-         		src={casper.src}
-         		alt="ignacio foto"
-     		/>
-			<h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-3">
-				Hola!, Soy Ignacio
-			</h1>
-			<div class="flex justify-left pb-6">
-				<Badge>Disponible para trabajar</Badge>
-			</div>
-
-
-			<h2 class="text-xl text-pretty">
-				<span>Ingeniero Civil en Computación e Informática,</span>
-				<span class="text-yellow-200/95 font-semibold"> Desarrollador FullStack </span>
-				<span class="text-red-300/95"> de Chile,</span>
-				<span class="opacity-80 ">
-					con experiencia en desarrollo web, microservicios y análisis de datos aplicados a la industria minera, creando soluciones escalables y orientadas al impacto real, entregando valor temprano al cliente mediante despliegues continuos.
-				</span>
-			</h2>
-
-			<nav class="mt-4 flex gap-x-2 flex-wrap">
-				<SocialPill href="https://www.linkedin.com/in/ignacio-felipe-umana-morel/">
-					<LinkedInIcon class="size-6"/> LinkedIn
-				</SocialPill>
-
-				<SocialPill href="https://github.com/KuajinaiSS">
-					<GitHubIcon class="size-6"/> GitHub
-				</SocialPill>
-
-				<SocialPill href="mailto:ignacioumam@gmail.com">
-					<EmailIcon class="size-6"/> ignacioumam@gmail.com
-				</SocialPill>
-			</nav>
+			<AboutMe />
 		</SectionContainer>
 
 		<SectionContainer id="experiencia" class="w-full mx-auto lg:w-[740px] py-20 px-5 pt-25">
@@ -65,6 +25,6 @@ import Proyects from '../components/Proyects.astro';
 			<h2 id="proyectos" class="text-3xl font-semiboldbold mb-5">Mis Proyectos</h2>
 			<Proyects />
 		</SectionContainer>
-
 	</main>
+
 </Layout>
