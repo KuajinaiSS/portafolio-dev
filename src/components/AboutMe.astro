@@ -6,6 +6,7 @@ import EmailIcon from "../icons/EmailIcon.astro";
 import GitHubIcon from "../icons/GitHubIcon.astro";
 import LinkedInIcon from "../icons/LinkedInIcon.astro";
 import SocialPill from "./SocialPill.astro";
+import PhoneIcon from "../icons/PhoneIcon.astro";
 ---
 
 <img
@@ -33,14 +34,18 @@ import SocialPill from "./SocialPill.astro";
 
 <nav class="mt-4 flex gap-x-2 flex-wrap">
 	<SocialPill href="https://www.linkedin.com/in/ignacio-felipe-umana-morel/">
-		<LinkedInIcon class="size-6"/> LinkedIn
+		<LinkedInIcon class="size-5"/>LinkedIn
 	</SocialPill>
 
 	<SocialPill href="https://github.com/KuajinaiSS">
-		<GitHubIcon class="size-6"/> GitHub
+		<GitHubIcon class="size-5"/>GitHub
 	</SocialPill>
 
 	<SocialPill href="mailto:ignacioumam@gmail.com">
-		<EmailIcon class="size-6"/> ignacioumam@gmail.com
+		<EmailIcon class="size-5"/>ignacioumam@gmail.com
+	</SocialPill>
+
+	<SocialPill href="tel:+56942646520">
+		<PhoneIcon class="size-5"/>+569 4264 6520
 	</SocialPill>
 </nav>
