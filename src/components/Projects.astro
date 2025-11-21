@@ -1,58 +1,88 @@
 ---
 import GitHubIcon from "../icons/GitHubIcon.astro";
+import NextJsIcon from "../icons/NextIcon.astro";
+import ReactIcon from "../icons/ReactIcon.astro";
+import StripeIcon from "../icons/StripeIcon.astro";
+import AstroIcon from "../icons/AstroIcon.astro";
+import TypeScriptIcon from "../icons/TypeScriptIcon.astro";
+import ExpressIcon from "../icons/ExpressIcon.astro";
+import MySQLIcon from "../icons/MySQLIcon.astro";
 
-const image300x200 = "https://placehold.co/300x200"
+import cambiarImagen from "../assets/images/vueltaAlMundo365Platos/cambiarImagen.jpg";
+import historiaDeUsuario from "../assets/images/vueltaAlMundo365Platos/historiaDeUsuario.jpg";
+import pagar from "../assets/images/vueltaAlMundo365Platos/pagar.jpg";
+import productoADetalle from "../assets/images/vueltaAlMundo365Platos/productoADetalle.jpg";
+import vaciarCarritoDCompras from "../assets/images/vueltaAlMundo365Platos/vaciarCarritoDCompras.jpg";
+import Carousel from "./Carousel.astro";
 
 const TAGS = {
-  NEXTJS: { label: "Next.js", class: "bg-blue-500 text-white", icon: GitHubIcon },
-  TAILWINDCSS: { label: "Tailwind CSS", class: "bg-teal-400", icon: GitHubIcon },
-  REACT: { label: "React", class: "bg-cyan-400", icon: GitHubIcon },
-  FIREBASE: { label: "Firebase", class: "bg-amber-400", icon: GitHubIcon },
-  GATSBY: { label: "Gatsby", class: "bg-purple-500", icon: GitHubIcon },
-  MARKDOWN: { label: "Markdown", class: "bg-gray-700", icon: GitHubIcon },
-  STRIPE: { label: "Stripe", class: "bg-indigo-400", icon: GitHubIcon },
-  ASTRO: { label: "Astro", class: "bg-orange-400", icon: GitHubIcon },
-  TYPESCRIPT: { label: "TypeScript", class: "bg-blue-600", icon: GitHubIcon }
+  NEXTJS: { 
+    label: "Next.js", 
+    class: "bg-black text-white", 
+    icon: NextJsIcon 
+  },
+  REACT: { 
+    label: "React", 
+    class: "bg-[#149ECA] text-white",
+    icon: ReactIcon 
+  },
+  REACTNATIVE: { 
+    label: "React Native", 
+    class: "bg-[#0D7A9F] text-white",
+    icon: ReactIcon 
+  },
+  STRIPE: { 
+    label: "Stripe", 
+    class: "bg-[#8B84FF] text-white",
+    icon: StripeIcon 
+  },
+  ASTRO: { 
+    label: "Astro", 
+    class: "bg-[#FF6B2C] text-white",
+    icon: AstroIcon 
+  },
+  TYPESCRIPT: { 
+    label: "TypeScript", 
+    class: "bg-[#2560A8] text-white",
+    icon: TypeScriptIcon 
+  },
+  EXPRESS: { 
+    label: "Express.js", 
+    class: "bg-gray-700 text-white",
+    icon: ExpressIcon 
+  },
+  MYSQL: { 
+    label: "MySQL", 
+    class: "bg-[#00758F] text-white",
+    icon: MySQLIcon 
+  },
+  GITHUB: { 
+    label: "GitHub", 
+    class: "bg-[#24292e] text-white", 
+    icon: GitHubIcon 
+  }
 };
 
 const PROJECTS = [
     {
-        title: "Portafolio Dev",
-        description: "Mi portafolio personal desarrollado con Astro, Tailwind CSS y hospedado en Netlify. Muestra mis proyectos y habilidades como desarrollador web.",
+        title: "Vuelta al Mundo en 365 Platos",
+        description: "E-commerce de platos internacionales desarrollado con React Native y Express.js. Implementa autenticación con Firebase, pasarela de pagos con Stripe y sistema de roles (admin/usuario). Los administradores gestionan el catálogo de productos mientras los usuarios pueden comprar, consultar su historial y actualizar su perfil. Base de datos MySQL para persistencia de datos.",
         link: "#",
         github: "#",
-        image: image300x200,
-        tags: [TAGS.NEXTJS, TAGS.TAILWINDCSS]
+        images: [
+            {img: cambiarImagen, id: 1},
+            {img: historiaDeUsuario, id: 2},
+            {img: pagar, id: 3},
+            {img: productoADetalle, id: 4},
+            {img: vaciarCarritoDCompras, id: 5},
+        ],
+        tags: [TAGS.REACTNATIVE, TAGS.EXPRESS, TAGS.STRIPE, TAGS.MYSQL, TAGS.TYPESCRIPT],
     },
-    {
-        title: "App de Tareas",
-        description: "Una aplicación web para gestionar tareas diarias, con funcionalidades de agregar, editar y eliminar tareas. Desarrollada con React y Firebase.",
-        link: "#",
-        github: "#",
-        image: image300x200,
-        tags: [TAGS.REACT, TAGS.FIREBASE]
-    },
-    {
-        title: "Blog Personal",
-        description: "Un blog personal donde comparto artículos sobre desarrollo web, tecnología y programación. Construido con Gatsby y Markdown.",
-        link: "#",
-        github: "#",
-        image: image300x200,
-        tags: [TAGS.GATSBY, TAGS.MARKDOWN]
-    },
-    {
-        title: "E-commerce Demo",
-        description: "Una tienda en línea de demostración con funcionalidades de carrito de compras, pasarela de pago y gestión de productos. Creada con Next.js y Stripe.",
-        link: "#",
-        github: "#",
-        image: image300x200,
-        tags: [TAGS.NEXTJS, TAGS.STRIPE]
-    }
 ]
 ---
 
 {
-    PROJECTS.map(({title, description, tags , image, link, github}) => (
+    PROJECTS.map(({title, description, tags, images, link, github}, index) => (
         <article>
             <h3 class="text-2xl font-semibold text-yellow-300 mb-2">{title}</h3>
             <p class="text-base text-pretty mb-2">{description}</p>
@@ -67,7 +97,7 @@ const PROJECTS = [
                     ))
                 }
             </ul>
-            <img class="rounded shadow-2xl shadow-white/20 mb-15" src={image} alt={`captura de pantalla del proyecto ${image}`}/>
+            <Carousel images={images} id={`carousel-project-${index}`} />
         </article>
     ))
 }
