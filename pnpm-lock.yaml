@@ -9,23 +9,27 @@ importers:
   .:
     dependencies:
       '@fontsource-variable/onest':
-        specifier: ^5.2.11
+        specifier: 5.2.11
         version: 5.2.11
       '@tailwindcss/vite':
-        specifier: ^4.1.17
+        specifier: 4.1.17
         version: 4.1.17(vite@6.4.1(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2))
       astro:
-        specifier: ^5.15.8
+        specifier: 5.15.8
         version: 5.15.8(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.2)(typescript@5.9.3)
       flowbite:
-        specifier: ^4.0.1
+        specifier: 4.0.1
         version: 4.0.1(rollup@4.53.2)
       sharp:
-        specifier: ^0.34.5
+        specifier: 0.34.5
         version: 0.34.5
       tailwindcss:
-        specifier: ^4.1.17
+        specifier: 4.1.17
         version: 4.1.17
+    devDependencies:
+      daisyui:
+        specifier: ^5.5.5
+        version: 5.5.5
 
 packages:
 
@@ -793,6 +797,9 @@ packages:
     resolution: {integrity: sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==}
     engines: {node: '>=4'}
     hasBin: true
+
+  daisyui@5.5.5:
+    resolution: {integrity: sha512-ekvI93ZkWIJoCOtDl0D2QMxnWvTejk9V5nWBqRv+7t0xjiBXqAK5U6o6JE2RPvlIC3EqwNyUoIZSdHX9MZK3nw==}
 
   debug@4.4.3:
     resolution: {integrity: sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA==}
@@ -2413,6 +2420,8 @@ snapshots:
       source-map-js: 1.2.1
 
   cssesc@3.0.0: {}
+
+  daisyui@5.5.5: {}
 
   debug@4.4.3:
     dependencies:
