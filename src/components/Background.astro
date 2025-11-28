@@ -6,7 +6,10 @@
 <div class="relative min-h-screen w-full overflow-hidden">
 
   <!-- Fondo fijo atrás -->
-  <div class="pointer-events-none fixed inset-0 -z-10">
+  <div 
+    class="pointer-events-none fixed inset-0 -z-10"
+    style="will-change: transform; transform: translateZ(0); backface-visibility: hidden;"
+  >
     <div
       class="absolute inset-0 bg-black"
       style={`background:
