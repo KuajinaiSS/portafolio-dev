@@ -8,11 +8,8 @@ import TypeScriptIcon from "../icons/TypeScriptIcon.astro";
 import ExpressIcon from "../icons/ExpressIcon.astro";
 import MySQLIcon from "../icons/MySQLIcon.astro";
 
-import cambiarImagen from "../assets/images/vueltaAlMundo365Platos/cambiarImagen.jpg";
-import historiaDeUsuario from "../assets/images/vueltaAlMundo365Platos/historiaDeUsuario.jpg";
-import pagar from "../assets/images/vueltaAlMundo365Platos/pagar.jpg";
-import productoADetalle from "../assets/images/vueltaAlMundo365Platos/productoADetalle.jpg";
-import vaciarCarritoDCompras from "../assets/images/vueltaAlMundo365Platos/vaciarCarritoDCompras.jpg";
+import * as Images from "../assets/images/vueltaAlMundo365Platos/index.ts";
+import { Image } from "astro:assets";
 import Carousel from "./Carousel.astro";
 
 const TAGS = {
@@ -70,11 +67,12 @@ const PROJECTS = [
         link: "#",
         github: "#",
         images: [
-            {img: cambiarImagen, id: 1},
-            {img: historiaDeUsuario, id: 2},
-            {img: pagar, id: 3},
-            {img: productoADetalle, id: 4},
-            {img: vaciarCarritoDCompras, id: 5},
+          {img: Images.Login, id: 1},
+            {img: Images.Categorias, id: 2},
+            {img: Images.Productos, id: 3},
+            {img: Images.Editar, id: 4},
+            {img: Images.Comprar, id: 5},
+            {img: Images.Pagar, id: 6},
         ],
         tags: [TAGS.REACTNATIVE, TAGS.EXPRESS, TAGS.STRIPE, TAGS.MYSQL, TAGS.TYPESCRIPT],
     },
