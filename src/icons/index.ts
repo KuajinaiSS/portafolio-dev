@@ -11,3 +11,6 @@ export { default as PhoneIcon } from "./PhoneIcon.astro";
 export { default as ReactIcon } from "./ReactIcon.astro";
 export { default as StripeIcon } from "./StripeIcon.astro";
 export { default as TypeScriptIcon } from "./TypeScriptIcon.astro";
+export { default as DockerIcon } from "./DockerIcon.astro";
+export { default as FlutterIcon } from "./FlutterIcon.astro";
+export { default as SocketIoIcon } from "./SocketIoIcon.astro";

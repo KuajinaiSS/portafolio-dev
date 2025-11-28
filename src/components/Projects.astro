@@ -2,6 +2,7 @@
 import * as Icons from "../icons/index.ts"
 import * as vam365pImages from "../assets/images/vueltaAlMundo365Platos/index.ts";
 import * as dermacorpusImages from "../assets/images/dermacorpus/index.ts";
+import * as fcabImages from "../assets/images/fcab/index.ts";
 
 import Carousel from "./Carousel.astro";
 
@@ -38,7 +39,7 @@ const TAGS = {
   },
   EXPRESS: { 
     label: "Express.js", 
-    class: "bg-gray-700 text-white",
+    class: "bg-black text-white",
     icon: Icons.ExpressIcon 
   },
   MYSQL: { 
@@ -55,7 +56,24 @@ const TAGS = {
     label: "Cloudinary",
     class: "bg-[#DCE6FF] text-[#3448C5]",
     icon: Icons.CloudinaryIcon
-  }
+  },
+  DOCKER: {
+    label: "Docker",
+    class: "bg-[#0db7ed] text-[#FFFFFF]",
+    icon: Icons.DockerIcon
+  },
+  FLUTTER: {
+    label: "Flutter",
+    class: "bg-[#F3F4F6] text-[#1E3A8A]",
+    icon: Icons.FlutterIcon
+  },
+  SOCKETIO: {
+    label: "Socket.io",
+    class: "bg-black text-white",
+    icon: Icons.SocketIoIcon
+  },
+
+
 
 };
 
@@ -77,7 +95,7 @@ const PROJECTS = [
     },
     {
       title: "Dermacorpus LandingPage",
-      description: "Landing Page informativa desarrollada para Dermacorpus, un centro especializado en rehabilitación dermatofuncional y estética. El proyecto incluyó el diseño UX/UI basado en mockups validados con el cliente, la creación de secciones sobre servicios, catálogo, testimonios, ubicación, equipo y contacto, además de enlaces directos al sistema de reservas. La plataforma mejora la visibilidad online del negocio, reduce su dependencia de redes sociales y centraliza la información clave para sus pacientes. Proyecto desarrollado como parte de la asignatura Gestión de Proyectos TI, alineado a las necesidades reales del socio comunitario.",
+      description: "Landing Page informativa desarrollada para Dermacorpus, un centro especializado en rehabilitación dermatofuncional y estética. El proyecto incluyó el diseño UX/UI basado en mockups validados con el cliente, la creación de secciones sobre servicios, catálogo, testimonios, ubicación, equipo y contacto, además de enlaces directos al sistema de reservas. La plataforma mejora la visibilidad online del negocio, reduce su dependencia de redes sociales y centraliza la información clave para sus pacientes.",
       link: "#",
       github: "#",
       images: [
@@ -90,8 +108,29 @@ const PROJECTS = [
         {img: dermacorpusImages.Mainpage2, id:7},
         {img: dermacorpusImages.Servicios, id:8},
       ],
-      tags: [TAGS.NEXTJS, TAGS.MYSQL, TAGS.TYPESCRIPT, TAGS.CLOUDINARY]
-    }
+      tags: [TAGS.NEXTJS, TAGS.MYSQL, TAGS.TYPESCRIPT, TAGS.CLOUDINARY, TAGS.DOCKER]
+    },
+    {
+      title: "Migración Sistema GTD – FCAB",
+      description:
+        "Proyecto desarrollado durante la práctica profesional en FCAB, enfocado en migrar el sistema 'Gráfico Tiempo Distancia' desde una arquitectura basada en APIs REST hacia una comunicación en tiempo real mediante sockets. Se implementó un backend en Express.js siguiendo principios de Clean Architecture y un frontend en Flutter estructurado con el patrón BLoC, manteniendo la funcionalidad del sistema original y mejorando su rendimiento. El trabajo incluyó elicitar requisitos, rediseñar consultas críticas, adaptar 10 queries del sistema, desarrollar la nueva interfaz, documentar el manual de usuario y validar el sistema con usuarios finales. El proyecto se ejecutó utilizando metodología incremental con dos iteraciones (backend y frontend), integrando prácticas profesionales reales en entornos productivos.",
+      link: "#",
+      github: "#",
+      images: [
+        { img: fcabImages.Mainpage, id: 1 },
+        { img: fcabImages.Detail, id: 2 },
+        { img: fcabImages.Filters, id: 3 },
+        { img: fcabImages.Filter1, id: 4 },
+        { img: fcabImages.Filter2, id: 5 },
+      ],
+      tags: [
+        TAGS.EXPRESS,
+        TAGS.TYPESCRIPT,
+        TAGS.FLUTTER,
+        TAGS.SOCKETIO,
+      ]
+    },
+
 ]
 ---
 
