@@ -1,89 +1,94 @@
 ---
 import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+    images?: (ImageMetadata | { img: ImageMetadata; id?: string })[];
+    id?: string;
+}
 
 const { images = [], id = "default-carousel" } = Astro.props;
 
-// Normalizar el formato de imágenes
-const normalizedImages = images.map(item => {
+const normalizedImages = images.map((item: ImageMetadata | { img: ImageMetadata; id?: string }) => {
     if (item && typeof item === "object" && "img" in item) {
-        return item.img; // Formato { img: ..., id: ... }
+        return item.img;
     }
-    return item;
+    return item as ImageMetadata;
 });
 ---
 
 <div class="carousel w-full" id={id}>
-    {normalizedImages.map((img, i) => {
-        const slideId = `${id}-slide${i + 1}`;
-        const prevSlideId = i === 0 ? `${id}-slide${normalizedImages.length}` : `${id}-slide${i}`;
-        const nextSlideId = i === normalizedImages.length - 1 ? `${id}-slide1` : `${id}-slide${i + 2}`;
-        
-        return (
-            <div id={slideId} class="carousel-item relative w-full">
-                <div class="w-full h-56 md:h-96 flex items-center justify-center bg-base-200">
-                    <Image
-                        src={img}
-                        alt={`Imagen ${i + 1} del proyecto`}
-                        class="max-w-full max-h-full object-contain"
-                        loading={i === 0 ? "eager" : "lazy"}
-                        decoding="async"
-                        sizes="(max-width: 768px) 100vw, 800px"
-                    />
-                </div>
-                <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                    <a href={`#${prevSlideId}`} class="btn btn-circle bg-yellow-300/50 hover:bg-yellow-300 text-black" data-carousel-nav data-carousel-id={id} data-direction="prev">❮</a>
-                    <a href={`#${nextSlideId}`} class="btn btn-circle bg-yellow-300/50 hover:bg-yellow-300 text-black" data-carousel-nav data-carousel-id={id} data-direction="next">❯</a>
-                </div>
+    {normalizedImages.map((img: ImageMetadata, i: number) => (
+        <div class="carousel-item relative w-full">
+            <div class="w-full h-56 md:h-96 flex items-center justify-center bg-base-200">
+                <Image
+                    src={img}
+                    alt={`Imagen ${i + 1} del proyecto`}
+                    class="max-w-full max-h-full object-contain"
+                    loading={i === 0 ? "eager" : "lazy"}
+                    decoding="async"
+                    sizes="(max-width: 768px) 100vw, 800px"
+                />
             </div>
-        );
-    })}
+            <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+                <button 
+                    class="btn btn-circle bg-yellow-300/50 hover:bg-yellow-300 text-black carousel-btn"
+                    data-slide-index={i === 0 ? normalizedImages.length - 1 : i - 1}
+                    data-carousel={id}
+                    type="button"
+                >❮</button>
+                <button 
+                    class="btn btn-circle bg-yellow-300/50 hover:bg-yellow-300 text-black carousel-btn"
+                    data-slide-index={i === normalizedImages.length - 1 ? 0 : i + 1}
+                    data-carousel={id}
+                    type="button"
+                >❯</button>
+            </div>
+        </div>
+    ))}
 </div>
 
 <script>
-    function initCarousel(carouselId) {
-        const carousel = document.getElementById(carouselId);
-        if (!carousel) return;
-
-        const navButtons = carousel.querySelectorAll(`a[data-carousel-nav][data-carousel-id="${carouselId}"]`);
-
-        function scrollToSlide(slideId) {
-            const slide = carousel.querySelector(`#${slideId}`);
-            if (slide) {
-                // Usar scrollIntoView con opciones para evitar scroll de página
-                slide.scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'nearest',
-                    inline: 'center'
-                });
-            }
-        }
-
-        // Agregar event listeners a los botones de navegación
-        navButtons.forEach((button) => {
+    function initCarousels() {
+        const buttons = document.querySelectorAll('button.carousel-btn');
+        
+        buttons.forEach(button => {
+            button.replaceWith(button.cloneNode(true));
+        });
+        
+        document.querySelectorAll('button.carousel-btn').forEach(button => {
             button.addEventListener('click', (e) => {
                 e.preventDefault();
-                const href = button.getAttribute('href');
-                if (href && href.startsWith('#')) {
-                    const slideId = href.substring(1);
-                    scrollToSlide(slideId);
+                
+                const carouselId = button.getAttribute('data-carousel');
+                const slideIndex = button.getAttribute('data-slide-index');
+                
+                if (!carouselId || !slideIndex) return;
+                
+                const targetIndex = parseInt(slideIndex);
+                const carousel = document.getElementById(carouselId);
+                
+                if (carousel) {
+                    const slides = carousel.querySelectorAll('.carousel-item');
+                    const targetSlide = slides[targetIndex];
+                    
+                    if (targetSlide) {
+                        targetSlide.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'nearest',
+                            inline: 'center'
+                        });
+                    }
                 }
             });
         });
     }
-
-    // Inicializar todos los carruseles
-    function initAllCarousels() {
-        const carousels = document.querySelectorAll('[id^="carousel-"]');
-        carousels.forEach(carousel => {
-            initCarousel(carousel.id);
-        });
-    }
-
-    // Inicializar cuando la página carga
-    document.addEventListener('astro:page-load', initAllCarousels);
+    
+    document.addEventListener('astro:page-load', initCarousels);
+    
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initAllCarousels);
+        document.addEventListener('DOMContentLoaded', initCarousels);
     } else {
-        initAllCarousels();
+        initCarousels();
     }
 </script>
