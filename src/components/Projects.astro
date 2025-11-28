@@ -1,87 +1,103 @@
 ---
-import GitHubIcon from "../icons/GitHubIcon.astro";
-import NextJsIcon from "../icons/NextIcon.astro";
-import ReactIcon from "../icons/ReactIcon.astro";
-import StripeIcon from "../icons/StripeIcon.astro";
-import AstroIcon from "../icons/AstroIcon.astro";
-import TypeScriptIcon from "../icons/TypeScriptIcon.astro";
-import ExpressIcon from "../icons/ExpressIcon.astro";
-import MySQLIcon from "../icons/MySQLIcon.astro";
+import * as Icons from "../icons/index.ts"
+import * as vam365pImages from "../assets/images/vueltaAlMundo365Platos/index.ts";
+import * as dermacorpusImages from "../assets/images/dermacorpus/index.ts";
 
-import * as Images from "../assets/images/vueltaAlMundo365Platos/index.ts";
-import { Image } from "astro:assets";
 import Carousel from "./Carousel.astro";
 
 const TAGS = {
   NEXTJS: { 
     label: "Next.js", 
     class: "bg-black text-white", 
-    icon: NextJsIcon 
+    icon: Icons.NextIcon
   },
   REACT: { 
     label: "React", 
     class: "bg-[#149ECA] text-white",
-    icon: ReactIcon 
+    icon: Icons.ReactIcon 
   },
   REACTNATIVE: { 
     label: "React Native", 
     class: "bg-[#0D7A9F] text-white",
-    icon: ReactIcon 
+    icon: Icons.ReactIcon 
   },
   STRIPE: { 
     label: "Stripe", 
     class: "bg-[#8B84FF] text-white",
-    icon: StripeIcon 
+    icon: Icons.StripeIcon 
   },
   ASTRO: { 
     label: "Astro", 
     class: "bg-[#FF6B2C] text-white",
-    icon: AstroIcon 
+    icon: Icons.AstroIcon 
   },
   TYPESCRIPT: { 
     label: "TypeScript", 
     class: "bg-[#2560A8] text-white",
-    icon: TypeScriptIcon 
+    icon: Icons.TypeScriptIcon 
   },
   EXPRESS: { 
     label: "Express.js", 
     class: "bg-gray-700 text-white",
-    icon: ExpressIcon 
+    icon: Icons.ExpressIcon 
   },
   MYSQL: { 
     label: "MySQL", 
     class: "bg-[#00758F] text-white",
-    icon: MySQLIcon 
+    icon: Icons.MySQLIcon 
   },
   GITHUB: { 
     label: "GitHub", 
     class: "bg-[#24292e] text-white", 
-    icon: GitHubIcon 
+    icon: Icons.GitHubIcon 
+  },
+  CLOUDINARY: {
+    label: "Cloudinary",
+    class: "bg-[#3448C5] text-white",
+    icon: Icons.CloudinaryIcon
   }
+
 };
 
 const PROJECTS = [
     {
-        title: "Vuelta al Mundo en 365 Platos",
-        description: "E-commerce de platos internacionales desarrollado con React Native y Express.js. Implementa autenticación con Firebase, pasarela de pagos con Stripe y sistema de roles (admin/usuario). Los administradores gestionan el catálogo de productos mientras los usuarios pueden comprar, consultar su historial y actualizar su perfil. Base de datos MySQL para persistencia de datos.",
-        link: "#",
-        github: "#",
-        images: [
-          {img: Images.Login, id: 1},
-            {img: Images.Categorias, id: 2},
-            {img: Images.Productos, id: 3},
-            {img: Images.Editar, id: 4},
-            {img: Images.Comprar, id: 5},
-            {img: Images.Pagar, id: 6},
-        ],
-        tags: [TAGS.REACTNATIVE, TAGS.EXPRESS, TAGS.STRIPE, TAGS.MYSQL, TAGS.TYPESCRIPT],
+      title: "Vuelta al Mundo en 365 Platos",
+      description: "E-commerce de platos internacionales desarrollado con React Native y Express.js. Implementa autenticación con Firebase, pasarela de pagos con Stripe y sistema de roles (admin/usuario). Los administradores gestionan el catálogo de productos mientras los usuarios pueden comprar, consultar su historial y actualizar su perfil. Base de datos MySQL para persistencia de datos.",
+      link: "#",
+      github: "#",
+      images: [
+        {img: vam365pImages.Login, id: 1},
+        {img: vam365pImages.Categorias, id: 2},
+        {img: vam365pImages.Productos, id: 3},
+        {img: vam365pImages.Editar, id: 4},
+        {img: vam365pImages.Comprar, id: 5},
+        {img: vam365pImages.Pagar, id: 6},
+      ],
+      tags: [TAGS.REACTNATIVE, TAGS.EXPRESS, TAGS.STRIPE, TAGS.MYSQL, TAGS.TYPESCRIPT, TAGS.CLOUDINARY],
     },
+    {
+      title: "Dermacorpus LandingPage",
+      description: "lorem5",
+      link: "#",
+      github: "#",
+      images: [
+        {img: dermacorpusImages.AdminLogin, id:1},
+        {img: dermacorpusImages.AdministracionCategorias, id:2},
+        {img: dermacorpusImages.AdministracionEspecialistas, id:3},
+        {img: dermacorpusImages.AdministracionReviews, id:4},
+        {img: dermacorpusImages.AdministracionServicios, id:5},
+        {img: dermacorpusImages.Mainpage, id:6},
+        {img: dermacorpusImages.Mainpage2, id:7},
+        {img: dermacorpusImages.Servicios, id:8},
+      ],
+      tags: [TAGS.NEXTJS, TAGS.MYSQL, TAGS.TYPESCRIPT, TAGS.CLOUDINARY]
+    }
 ]
 ---
 
 {
     PROJECTS.map(({title, description, tags, images, link, github}, index) => (
-        <article>
+        <article class="pb-30">
             <h3 class="text-2xl font-semibold text-yellow-300 mb-2">{title}</h3>
             <p class="text-base text-pretty mb-2">{description}</p>
             <ul class="flex flex-wrap gap-2 my-2">

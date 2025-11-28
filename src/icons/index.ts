@@ -1,0 +1,13 @@
+export { default as AstroIcon } from "./AstroIcon.astro";
+export { default as BrifcaseIcon } from "./BrifcaseIcon.astro";
+export { default as CloudinaryIcon } from "./CloudinaryIcon.astro";
+export { default as EmailIcon } from "./EmailIcon.astro";
+export { default as ExpressIcon } from "./ExpressIcon.astro";
+export { default as GitHubIcon } from "./GitHubIcon.astro";
+export { default as LinkedInIcon } from "./LinkedInIcon.astro";
+export { default as MySQLIcon } from "./MySQLIcon.astro";
+export { default as NextIcon } from "./NextIcon.astro";
+export { default as PhoneIcon } from "./PhoneIcon.astro";
+export { default as ReactIcon } from "./ReactIcon.astro";
+export { default as StripeIcon } from "./StripeIcon.astro";
+export { default as TypeScriptIcon } from "./TypeScriptIcon.astro";
